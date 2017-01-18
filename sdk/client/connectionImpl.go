@@ -10,7 +10,7 @@ import (
 	"runtime"
 	"strings"
 
-	log "github.com/sirupsen/logrus"
+	log "github.com/Sirupsen/logrus"
 	"github.com/worldpay/worldpay-lib-go/worldpay/sdk"
 	"github.com/worldpay/worldpay-lib-go/worldpay/sdk/utils"
 	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/service"

@@ -1,7 +1,7 @@
 package client
 
 import (
-	log "github.com/sirupsen/logrus"
+	log "github.com/Sirupsen/logrus"
 	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/service/cardnotpresent"
 	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/service/tokenization"
 )
