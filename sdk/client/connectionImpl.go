@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"runtime"
+	"strings"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/worldpay/worldpay-lib-go/worldpay/sdk"
@@ -24,14 +25,7 @@ type ConnectionImpl struct {
 	Timeout     int
 	SSLCheck    bool
 	UserAgent   string
-	proxy       *Proxy
-}
-
-// Proxy represents simple proxy config
-type Proxy struct {
-	Host   string
-	Port   string
-	Scheme string
+	proxy       string
 }
 
 // NewConnection Create a new Connection instance
@@ -39,7 +33,7 @@ type Proxy struct {
 // APIVersion e.g. v1
 // serviceKey string, as per the API Keys section of your Worldpay account
 // timeout int, number of milliseconds to wait before throwing a timeout error on requests
-func NewConnection(apiBaseURL, appVersion, secureNetID, secureKey string, timeout int, sslCheck bool, proxy *Proxy) (service.Connection, error) {
+func NewConnection(apiBaseURL, appVersion, secureNetID, secureKey string, timeout int, sslCheck bool, proxy string) (service.Connection, error) {
 
 	uaString := utils.BuildUserAgentString(runtime.GOOS, "?", runtime.GOARCH, runtime.Version(), sdk.LibVersion, sdk.APIVersion, sdk.LibLang, sdk.LibOwner)
 
@@ -51,7 +45,7 @@ func NewConnection(apiBaseURL, appVersion, secureNetID, secureKey string, timeou
 			"SecureKey":       "**obfuscated**",
 			"timeout":         timeout,
 			"UserAgentString": uaString,
-			"Proxy":           &proxy,
+			"Proxy":           proxy,
 			"sslCheck":        sslCheck}).Debug("begin connectionImpl.NewConnection")
 
 	result := &ConnectionImpl{
@@ -117,9 +111,9 @@ func (conn *ConnectionImpl) request(method, reqURL string, auth bool, body []byt
 
 	httpClient := http.Client{}
 
-	if conn.proxy != nil {
+	if !strings.EqualFold(conn.proxy, "") {
 
-		proxyURL, errParse := url.Parse(fmt.Sprintf("%s%s:%s", conn.proxy.Scheme, conn.proxy.Host, conn.proxy.Port))
+		proxyURL, errParse := url.Parse(conn.proxy)
 
 		if errParse != nil {
 

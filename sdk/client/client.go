@@ -18,7 +18,7 @@ type clientImpl struct {
 }
 
 // New returns a new implemention of SDK Client
-func New(apiEndpoint, appVersion, secureNetID, secureKey string, proxy *Proxy) (Client, error) {
+func New(apiEndpoint, appVersion, secureNetID, secureKey string, proxy string) (Client, error) {
 
 	log.WithFields(log.Fields{"apiEndpoint": apiEndpoint, "appVersion": appVersion, "secureNetID": secureNetID, "secureKey": secureKey}).Debug("begin client.New()")
 
