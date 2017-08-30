@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
 	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/service"
 )
 
