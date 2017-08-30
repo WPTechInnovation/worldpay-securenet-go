@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/Sirupsen/logrus"
+	"github.com/sirupsen/logrus"
 	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/client"
 	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/service/cardnotpresent"
 	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/service/tokenization"
@@ -48,14 +48,14 @@ func main() {
 	card := types.Card{}
 	card.Number = "5314501686810737"
 	card.ExpirationDate = "05/19"
-	card.Address = &types.Address{}
-	card.Address.Company = "Yacero"
-	card.Address.Line1 = "01438 Fieldstone Way"
-	card.Address.City = "Lancaster"
-	card.Address.State = "Pennsylvania"
-	card.Address.Zip = "17605"
-	card.Address.Country = "United States"
-	card.Address.Phone = "717.615.2865"
+	// card.Address = &types.Address{}
+	// card.Address.Company = "Yacero"
+	// card.Address.Line1 = "01438 Fieldstone Way"
+	// card.Address.City = "Lancaster"
+	// card.Address.State = "Pennsylvania"
+	// card.Address.Zip = "17605"
+	// card.Address.Country = "United States"
+	// card.Address.Phone = "717.615.2865"
 
 	// Create developer application object
 	devApp := &types.DeveloperApplication{}
