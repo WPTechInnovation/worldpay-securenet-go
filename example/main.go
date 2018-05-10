@@ -6,10 +6,10 @@ import (
 	"os"
 
 	"github.com/sirupsen/logrus"
-	"github.com/WPTechInnovation/worldpay-securenet-lib-go/sdk/client"
-	"github.com/WPTechInnovation/worldpay-securenet-lib-go/sdk/service/cardnotpresent"
-	"github.com/WPTechInnovation/worldpay-securenet-lib-go/sdk/service/tokenization"
-	"github.com/WPTechInnovation/worldpay-securenet-lib-go/sdk/types"
+	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/client"
+	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/service/cardnotpresent"
+	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/service/tokenization"
+	"github.com/wptechinnovation/worldpay-securenet-lib-go/sdk/types"
 )
 
 // Flags
